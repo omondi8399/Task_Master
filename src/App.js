@@ -9,11 +9,11 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async (taskText) => {
-    setIsLoading(true);
+    setIsLoading(true)
     setError(null);
     try {
       const response = await fetch(
-        'https://react-http-6b4a6.firebaseio.com/tasks.json'
+        'https://react-now-5c4bb-default-rtdb.firebaseio.com/tasks.json'
       );
 
       if (!response.ok) {
