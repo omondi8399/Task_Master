@@ -7,7 +7,7 @@ import useHttp from './hooks/use-http';
 function App() {
   const [tasks, setTasks] = useState([]);
   
-  const transformTasks = taskObj => {
+  const transformTasks = (taskObj => {
     const loadedTasks = [];
 
       for (const taskKey in taskObj) {
@@ -15,7 +15,7 @@ function App() {
       }
 
       setTasks(loadedTasks);
-  }
+  })
 
   const { isLoading, error, sendRequest: fetchTasks }= useHttp(
     { url:
@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     fetchTasks();
-  }, []);
+  }, [fetchTasks]);
 
   const taskAddHandler = (task) => {
     setTasks((prevTasks) => prevTasks.concat(task));
